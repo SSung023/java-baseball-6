@@ -32,12 +32,16 @@ public class OutputView {
         }
         System.out.println();
     }
-    
+
     public void printRoundEnd() {
         System.out.println(ROUND_END.getMessage());
     }
 
     public void printAskCommand() {
         System.out.println(ASK_CONTINUE.getMessage());
+    }
+
+    public static void printError(String message) {
+        System.out.println(message);
     }
 }

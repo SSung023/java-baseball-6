@@ -1,5 +1,6 @@
 package baseball.exception;
 
+import baseball.view.OutputView;
 import java.util.Arrays;
 import java.util.function.Supplier;
 
@@ -31,7 +32,7 @@ public class RetryHandler implements ExceptionHandler {
 
     private void printException(Exception actual, Class<? extends Exception>... exceptions) {
         if (isExpectedException(actual, exceptions)) {
-//            OutputView.printError(actual.getMessage());
+            OutputView.printError(actual.getMessage());
             return;
         }
         throw new RuntimeException(actual);

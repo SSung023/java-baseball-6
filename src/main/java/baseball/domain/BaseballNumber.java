@@ -10,6 +10,7 @@ public class BaseballNumber {
     private final List<Integer> baseballNumber;
 
     private BaseballNumber(List<Integer> baseballNumber) {
+        validate(baseballNumber);
         this.baseballNumber = baseballNumber;
     }
 
@@ -48,5 +49,10 @@ public class BaseballNumber {
 
     public List<Integer> getBaseballNumber() {
         return Collections.unmodifiableList(baseballNumber);
+    }
+
+    @Override
+    public String toString() {
+        return baseballNumber.toString();
     }
 }
