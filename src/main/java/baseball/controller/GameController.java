@@ -39,7 +39,7 @@ public class GameController {
     }
 
     private void printGreeting() {
-
+        outputView.printGameStart();
     }
 
     private BaseballNumber setComputerNumber() {
