@@ -18,6 +18,7 @@ public class RetryHandler implements ExceptionHandler {
         }
     }
 
+    @Override
     @SafeVarargs
     public final void execute(Runnable action, Class<? extends Exception>... exceptions) {
         while (true) {
