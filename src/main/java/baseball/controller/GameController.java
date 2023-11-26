@@ -1,6 +1,7 @@
 package baseball.controller;
 
 import baseball.domain.BaseballNumber;
+import baseball.domain.Command;
 import baseball.dto.GameResult;
 import baseball.exception.ExceptionHandler;
 import baseball.service.GameService;
@@ -27,14 +28,13 @@ public class GameController {
         printGreeting();
 
         //TODO: 게임이 완전히 끝났는지 여부 확인
-        while (true) {
+        while (gameService.isGameProceeding()) {
             //TODO: 컴퓨터의 수 설정
             BaseballNumber computerNumber = setComputerNumber();
-
-            //TODO: 야구 게임 로직 반복 실행
             playGame(computerNumber);
 
             //TODO: 사용자로부터 종료 여부 확인 및 종료 X시, 정답 생성 로직부터 다시 시작
+            getCommand();
         }
     }
 
@@ -60,5 +60,11 @@ public class GameController {
             outputView.printRoundResult(roundResult);
         }
         outputView.printRoundEnd();
+    }
+
+    private void getCommand() {
+        outputView.printAskCommand();
+        Command userCommand = Command.create(inputView.getCommand());
+        gameService.checkCommand(userCommand);
     }
 }

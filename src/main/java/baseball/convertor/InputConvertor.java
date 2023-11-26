@@ -11,4 +11,8 @@ public class InputConvertor {
                 .boxed()
                 .toList();
     }
+
+    public static int convertStringToInt(String input) {
+        return Integer.parseInt(input);
+    }
 }

@@ -1,5 +1,6 @@
 package baseball.view;
 
+import static baseball.constants.Message.ASK_CONTINUE;
 import static baseball.constants.Message.ASK_NUMBER;
 import static baseball.constants.Message.BALL;
 import static baseball.constants.Message.NOTHING;
@@ -29,5 +30,9 @@ public class OutputView {
 
     public void printRoundEnd() {
         System.out.println(ROUND_END.getMessage());
+    }
+
+    public void printAskCommand() {
+        System.out.println(ASK_CONTINUE.getMessage());
     }
 }
