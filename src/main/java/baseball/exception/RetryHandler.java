@@ -2,7 +2,6 @@ package baseball.exception;
 
 import java.util.Arrays;
 import java.util.function.Supplier;
-import vendingmachine.view.OutputView;
 
 public class RetryHandler implements ExceptionHandler {
 
@@ -32,7 +31,7 @@ public class RetryHandler implements ExceptionHandler {
 
     private void printException(Exception actual, Class<? extends Exception>... exceptions) {
         if (isExpectedException(actual, exceptions)) {
-            OutputView.printError(actual.getMessage());
+//            OutputView.printError(actual.getMessage());
             return;
         }
         throw new RuntimeException(actual);
