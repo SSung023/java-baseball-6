@@ -1,5 +1,8 @@
 package baseball.domain;
 
+import static baseball.constants.GameRule.BASEBALL_MAX_SIZE;
+import static baseball.constants.GameRule.MAX_BASEBALL_NUMBER;
+import static baseball.constants.GameRule.MIN_BASEBALL_NUMBER;
 import static baseball.exception.ErrorCode.INVALID_BASEBALL_NUMBER;
 import static baseball.exception.ErrorCode.INVALID_NUMBER_SIZE;
 
@@ -25,14 +28,14 @@ public class BaseballNumber {
     }
 
     private void validateSize(List<Integer> baseballNumber) {
-        if (baseballNumber.size() != 3) {
+        if (baseballNumber.size() != BASEBALL_MAX_SIZE.getValue()) {
             throw new IllegalArgumentException(INVALID_NUMBER_SIZE.getMessage());
         }
     }
 
     private void validateRange(List<Integer> baseballNumber) {
         boolean outOfRange = baseballNumber.stream()
-                .anyMatch(num -> num < 1 || 9 < num);
+                .anyMatch(num -> num < MIN_BASEBALL_NUMBER.getValue() || MAX_BASEBALL_NUMBER.getValue() < num);
         if (outOfRange) {
             throw new IllegalArgumentException(INVALID_BASEBALL_NUMBER.getMessage());
         }
