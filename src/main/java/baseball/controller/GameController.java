@@ -64,7 +64,8 @@ public class GameController {
 
     private void getCommand() {
         outputView.printAskCommand();
-        Command userCommand = Command.create(inputView.getCommand());
+        Command userCommand = exceptionHandler.execute(
+                () -> Command.create(inputView.getCommand()), IllegalArgumentException.class);
         gameService.checkCommand(userCommand);
     }
 }
